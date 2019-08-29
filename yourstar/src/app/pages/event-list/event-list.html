@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <ion-list>
+    <ion-grid fixed>
+      <ion-row class="ion-align-items-stretch">
+        <ion-col size="12" size-md="6" *ngFor="let event of events">
+          <ion-card class="event-card" routerLink="/app/tabs/events/event-details/{{event.id}}">
+            <ion-card-header>
+              <ion-item detail="false" lines="none">
+                <ion-avatar slot="start">
+                  <img [src]="event.image" alt="Event profile pic">
+                </ion-avatar>
+                {{event.title}}
+              </ion-item>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-list>
+                <ion-item routerLink="/app/tabs/events/event-details/{{event.id}}">
+                  <h3>{{event.description}}</h3>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+
+            <ion-row class="ion-no-padding ion-justify-content-center">
+              <ion-col size="4" class="ion-text-left">
+                <ion-button fill="clear" size="small" color="primary" (click)="goToEventTwitter(event)">
+                  <ion-icon name="logo-twitter" slot="start"></ion-icon>
+                  Tweet
+                </ion-button>
+              </ion-col>
+              <ion-col size="4" class="ion-text-center">
+                <ion-button fill="clear" size="small" color="primary" (click)="openEventShare(event)">
+                  <ion-icon name="share-alt" slot="start"></ion-icon>
+                  Share
+                </ion-button>
+              </ion-col>
+              <ion-col size="4" lass="ion-text-right">
+                <ion-button fill="clear" size="small" color="primary" (click)="openContact(event)">
+                  <ion-icon name="chatboxes" slot="start"></ion-icon>
+                  Contact
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

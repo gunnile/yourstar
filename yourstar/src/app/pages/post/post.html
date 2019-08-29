@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{star?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="star" class="post-header">
+    <img *ngIf="star.image" [src]="star.image" [alt]="star.name">
+  </div>
+  <div class="post-info">
+    <h4 class="ion-padding-start">{{star?.name}} 's Score</h4>
+
+    <ion-label position="stacked" color="primary">type1</ion-label>
+    <ionic4-star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#488aff" 
+    defaultColor = "#f4f4f4"
+    readonly="false"
+    rating="3"
+    fontSize = "32px"
+    (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+    <ion-label position="stacked" color="primary">type2</ion-label>
+    <ionic4-star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#488aff" 
+    defaultColor = "#f4f4f4"
+    readonly="false"
+    rating="3"
+    fontSize = "32px"
+    (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+    <ion-label position="stacked" color="primary">type3</ion-label>
+    <ionic4-star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#488aff" 
+    defaultColor = "#f4f4f4"
+    readonly="false"
+    rating="3"
+    fontSize = "32px"
+    (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+    <ion-label position="stacked" color="primary">type4</ion-label>
+    <ionic4-star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#488aff" 
+    defaultColor = "#f4f4f4"
+    readonly="false"
+    rating="3"
+    fontSize = "32px"
+    (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+    <ion-label position="stacked" color="primary">type5</ion-label>
+    <ionic4-star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#488aff" 
+    defaultColor = "#f4f4f4"
+    readonly="false"
+    rating="3"
+    fontSize = "32px"
+    (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+  </div>
+
+  <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label position="stacked" color="primary">Enter your support message below</ion-label>
+        <ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-text color="danger">
+      <p [hidden]="supportQuestion.valid || submitted === false" class="ion-padding-start">
+        Support message is required
+      </p>
+    </ion-text>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Submit</ion-button>
+    </div>
+  </form>
+
+<!--   
+    <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Enter your support message below</ion-label>
+          <ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <ion-text color="danger">
+        <p [hidden]="supportQuestion.valid || submitted === false" class="ion-padding-start">
+          Support message is required
+        </p>
+      </ion-text>
+
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit">Submit</ion-button>
+      </div>
+    </form>
+   -->
+
+  
+</ion-content>

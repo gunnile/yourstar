@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/tabs/stars"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{star?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding star-detail">
+  <div *ngIf="star" class="ion-text-center">
+    <img *ngIf="star.image" [src]="star.image" [alt]="star.name">
+    <br>
+
+    <ion-button fill="clear" size="small" color="twitter">
+      <ion-icon name="logo-twitter" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" size="small" color="github">
+      <ion-icon name="logo-github" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" size="small" color="instagram">
+      <ion-icon name="logo-instagram" slot="icon-only"></ion-icon>
+    </ion-button>
+  </div>
+
+  <p>{{star?.description}}</p>
+
+  <canvas id="raderChart "#raderChart
+    width= "400"
+    height= "500">
+  </canvas>
+
+  <ion-button *ngIf="star" expand="block" (click) = goToPost(star) >
+    Your Stars Score
+  </ion-button>
+
+</ion-content>
+
+
+

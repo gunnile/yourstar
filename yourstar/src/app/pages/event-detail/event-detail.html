@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/tabs/events"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{event?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding event-detail">
+  <div *ngIf="event" class="ion-text-center">
+    <img *ngIf="event.image" [src]="event.image" [alt]="event.title">
+    <br>
+
+    <ion-button fill="clear" size="small" color="twitter">
+      <ion-icon name="logo-twitter" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" size="small" color="github">
+      <ion-icon name="logo-github" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" size="small" color="instagram">
+      <ion-icon name="logo-instagram" slot="icon-only"></ion-icon>
+    </ion-button>
+  </div>
+
+  <p>{{event?.description}}</p>
+
+
+  <ion-list>
+    <ion-grid fixed>
+      <ion-row class="ion-align-items-stretch">
+        <ion-col size="12" size-md="6" *ngFor="let star of star_list">
+          <ion-card class="star-card"  routerLink="/app/tabs/stars/star-details/{{star.id}}">
+            <ion-card-header>
+              <ion-item detail="false" lines="none">
+                <ion-avatar slot="start">
+                  <img [src]="star.image" alt="Star profile pic">
+                </ion-avatar>
+                {{star.name}}
+              </ion-item>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-list>
+                <ion-item routerLink="/app/tabs/stars/star-details/{{star.id}}">
+                  <h3>{{star.description}}</h3>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>
